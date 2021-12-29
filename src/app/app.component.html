@@ -1,0 +1,58 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div class="row">
+  <h4 style="text-align: center;">Photo List</h4>
+  <div class="col-sm-6" *ngFor="let obj of images; let i = index">
+    <div class="card w3-panel w3-card">
+      <img class="card-img-top" src="{{obj?.thumbnailUrl}}" alt="Card image cap">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Title: {{obj?.title}}</li>
+        <li class="list-group-item">ID: {{obj?.id}}</li>
+        <li class="list-group-item">Url: {{obj?.url}}</li>
+        <li class="list-group-item">
+          <button type="button" class="btn btn-primary" *ngIf="obj?.compareDisplay" (click)="addToCompare(obj)">COMPARE</button>
+          <button type="button" class="btn btn-primary" *ngIf="!obj?.compareDisplay" (click)="removeFromCompare(obj)">REMOVE</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<table class="table w3-card tbl-display">
+  <thead>
+    <tr>
+      <th style="text-align: center;" scope="col">COMPARISON TABLE</th>
+    </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">URL</th>
+      <th scope="col">TITLE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let obj of compareArray; let i = index">
+      <td>  
+        <img class="card-img-top" src="{{obj?.thumbnailUrl}}" alt="Card image cap">
+      </td>
+      <td>{{obj?.id}}</td>
+      <td>{{obj?.url}}</td>
+      <td>{{obj?.title}}</td>
+    </tr>
+  </tbody>
+</table>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<router-outlet></router-outlet>
